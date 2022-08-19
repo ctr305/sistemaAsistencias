@@ -34,8 +34,8 @@ public class ConexionBD {
             atributos.load(archivoConfiguracion);
             archivoConfiguracion.close();
             Class.forName("java.sql.Driver");
-            String direccionBD = atributos.getProperty("DireccionDB");
-            String usuario = atributos.getProperty("Uusario");
+            String direccionBD = atributos.getProperty("DireccionBD");
+            String usuario = atributos.getProperty("Usuario");
             String password = atributos.getProperty("Password");
             conexion = DriverManager.getConnection(direccionBD, usuario, password);
         }catch(FileNotFoundException fe){
