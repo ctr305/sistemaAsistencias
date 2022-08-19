@@ -17,7 +17,7 @@ public class ExperienciaEducativaDAOTest {
     }
 
     @Test
-    public void testGetExperienciaEducativa() {
+    public void testGetExperienciaEducativaExito() {
         String NRC = "80773";
         ExperienciaEducativa esperado = new ExperienciaEducativa();
         esperado.setNRC("80773");
