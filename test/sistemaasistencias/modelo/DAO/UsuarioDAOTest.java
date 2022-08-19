@@ -27,6 +27,12 @@ public class UsuarioDAOTest {
         usuarioEsperado.setApellidoPaterno("Smith");
         usuarioEsperado.setApellidoMaterno("Hernandez");
         
+        String nombreUsuario = "tobias22";
+        String password = "1234";
+        Usuario usuarioResultado = UsuarioDAO.IniciarSesion(nombreUsuario, password);
+        
+        assertEquals(Constantes.CODIGO_OPERACION_CORRECTA, usuarioResultado.getCodigoRespuesta());
+        
         System.out.println("ID esperado: "+usuarioEsperado.getIdUsuario());
         System.out.println("Nombre de usuario esperado: "+usuarioEsperado.getNombreUsuario());
         System.out.println("Password esperado: "+usuarioEsperado.getPassword());
@@ -34,12 +40,6 @@ public class UsuarioDAOTest {
         System.out.println("Nombre esperado: "+usuarioEsperado.getNombre());
         System.out.println("Apellido Paterno esperado: "+usuarioEsperado.getApellidoPaterno());
         System.out.println("APellido Materno esperado: "+usuarioEsperado.getApellidoMaterno()+"\n");
-        
-        String nombreUsuario = "tobias22";
-        String password = "1234";
-        Usuario usuarioResultado = UsuarioDAO.IniciarSesion(nombreUsuario, password);
-        
-        assertEquals(Constantes.CODIGO_OPERACION_CORRECTA, usuarioResultado.getCodigoRespuesta());
         
         System.out.println("ID esperado: "+usuarioResultado.getIdUsuario());
         System.out.println("Nombre de usuario esperado: "+usuarioResultado.getNombreUsuario());
