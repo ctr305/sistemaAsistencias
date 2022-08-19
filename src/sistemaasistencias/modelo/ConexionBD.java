@@ -22,7 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ConexionBD {
-    public static Connection abriConexionBD(){
+    public static Connection abrirConexionBD(){
         Connection conexion = null;
         try{
             Path CURRENT_FILE = Paths.get("");

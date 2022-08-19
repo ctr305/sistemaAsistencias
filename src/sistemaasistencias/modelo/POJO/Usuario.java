@@ -14,7 +14,7 @@ public class Usuario {
     private String nombreUsuario;
     private String password;
     private String rol;
-    private Integer codigoRespuesta;
+    private int codigoRespuesta;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
@@ -25,6 +25,9 @@ public class Usuario {
         this.password = password;
         this.rol = rol;
         this.codigoRespuesta = codigoRespuesta;
+    }
+
+    public Usuario() {
     }
 
     public String getIdUsuario() {
@@ -47,11 +50,11 @@ public class Usuario {
         return nombre;
     }
 
-    public Integer getCodigoRespuesta() {
+    public int getCodigoRespuesta() {
         return codigoRespuesta;
     }
 
-    public void setCodigoRespuesta(Integer codigoRespuesta) {
+    public void setCodigoRespuesta(int codigoRespuesta) {
         this.codigoRespuesta = codigoRespuesta;
     }
     

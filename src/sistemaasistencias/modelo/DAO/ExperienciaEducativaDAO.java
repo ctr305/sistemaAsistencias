@@ -15,7 +15,7 @@ import sistemaasistencias.modelo.POJO.ExperienciaEducativa;
 
 public class ExperienciaEducativaDAO {
     public static ExperienciaEducativa getExperienciaEducativa(String NRC){
-        Connection conexionBD = ConexionBD.abriConexionBD();
+        Connection conexionBD = ConexionBD.abrirConexionBD();
         ExperienciaEducativa experienciaEducativaRetorno = new ExperienciaEducativa();
         if(conexionBD != null){
             String consulta = "SELECT * FROM experienciaEducativa WHERE NRC = ?";
