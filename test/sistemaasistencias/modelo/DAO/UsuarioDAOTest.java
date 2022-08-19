@@ -17,7 +17,7 @@ public class UsuarioDAOTest {
     }
 
     @Test
-    public void testIniciarSesion() {
+    public void testIniciarSesionExito() {
         Usuario usuarioEsperado = new Usuario();
         usuarioEsperado.setIdUsuario("S00000000");
         usuarioEsperado.setNombreUsuario("tobias22");
@@ -48,5 +48,23 @@ public class UsuarioDAOTest {
         System.out.println("Nombre esperado: "+usuarioResultado.getNombre());
         System.out.println("Apellido Paterno esperado: "+usuarioResultado.getApellidoPaterno());
         System.out.println("APellido Materno esperado: "+usuarioResultado.getApellidoMaterno());
+    }
+    
+    @Test
+    public void testIniciarSesionFallido() {
+        Usuario usuarioEsperado = new Usuario();
+        usuarioEsperado.setIdUsuario("S00000000");
+        usuarioEsperado.setNombreUsuario("tobias22");
+        usuarioEsperado.setPassword("1234");
+        usuarioEsperado.setRol("Estudiante");
+        usuarioEsperado.setNombre("Tobias");
+        usuarioEsperado.setApellidoPaterno("Smith");
+        usuarioEsperado.setApellidoMaterno("Hernandez");
+        
+        String nombreUsuario = "tobias23";
+        String password = "1234";
+        Usuario usuarioResultado = UsuarioDAO.IniciarSesion(nombreUsuario, password);
+        
+        assertEquals(Constantes.CODIGO_CREDENCIALES_INCORRECTAS, usuarioResultado.getCodigoRespuesta());
     }
 }
