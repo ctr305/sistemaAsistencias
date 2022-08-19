@@ -12,9 +12,18 @@ public class Usuario {
     private String nombreUsuario;
     private String password;
     private String rol;
+    private Integer codigoRespuesta;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
+
+    public Usuario(String idUsuario, String nombreUsuario, String password, String rol, Integer codigoRespuesta) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.rol = rol;
+        this.codigoRespuesta = codigoRespuesta;
+    }
 
     public String getIdUsuario() {
         return idUsuario;
@@ -36,6 +45,14 @@ public class Usuario {
         return nombre;
     }
 
+    public Integer getCodigoRespuesta() {
+        return codigoRespuesta;
+    }
+
+    public void setCodigoRespuesta(Integer codigoRespuesta) {
+        this.codigoRespuesta = codigoRespuesta;
+    }
+    
     public String getApellidoPaterno() {
         return apellidoPaterno;
     }
