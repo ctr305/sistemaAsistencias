@@ -8,6 +8,8 @@ package sistemaasistencias.modelo.POJO;
 
 public class Usuario {
 
+    public static Usuario usuarioLogin;
+    
     private String idUsuario;
     private String nombreUsuario;
     private String password;
