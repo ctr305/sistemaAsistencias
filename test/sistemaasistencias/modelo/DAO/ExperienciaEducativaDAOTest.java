@@ -1,8 +1,8 @@
 /*
  * Autor: Leonardo Criollo Ramirez
- * Fecha de creacion:
- * Fecha de modificacion:
- * Descripcion:
+ * Fecha de creacion: 18/08/22
+ * Fecha de modificacion: 19/08/22
+ * Descripcion: Prueba del DAO de ExperienciaEducativa.
  */
 package sistemaasistencias.modelo.DAO;
 

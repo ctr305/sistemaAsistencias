@@ -1,7 +1,7 @@
 /*
  * Autor: Leonardo Criollo Ramirez
  * Fecha de creacion: 18/08/22
- * Fecha de modificacion: 18/08/22
+ * Fecha de modificacion: 19/08/22
  * Descripcion: POJO de la clase Usuario
  */
 package sistemaasistencias.modelo.POJO;
