@@ -27,4 +27,14 @@ public class ExperienciaEducativaDAOTest {
         assertEquals(esperado.getNombre(), resultado.getNombre());
     }
     
+    @Test
+    public void testGetExperienciaEducativaFallido() {
+        String NRC = "80774";
+        ExperienciaEducativa esperado = new ExperienciaEducativa();
+        esperado.setNRC("80773");
+        esperado.setNombre("Derecho Aduanero");
+        ExperienciaEducativa resultado = ExperienciaEducativaDAO.getExperienciaEducativa(NRC);
+        assertNotEquals(esperado.getNRC(), resultado.getNRC());
+        assertNotEquals(esperado.getNombre(), resultado.getNombre());
+    }
 }
