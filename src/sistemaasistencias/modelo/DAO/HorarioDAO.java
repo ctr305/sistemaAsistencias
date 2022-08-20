@@ -22,7 +22,7 @@ public class HorarioDAO {
         ArrayList<Horario> horarios = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
-            String consulta = "SELECT * FROM horario WHERE NRC = ?";
+            String consulta = "SELECT *  FROM horario WHERE NRC = ?";
             try {
                 PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
                 prepararConsulta.setString(1, experienciaEducativa.getNRC());

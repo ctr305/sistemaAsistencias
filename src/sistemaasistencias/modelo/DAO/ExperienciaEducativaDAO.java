@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sistemaasistencias.modelo.ConexionBD;
 import sistemaasistencias.modelo.POJO.ExperienciaEducativa;
 
@@ -29,7 +31,7 @@ public class ExperienciaEducativaDAO {
                 }
                 conexionBD.close();
             } catch (SQLException e){
-                e.printStackTrace();
+                Logger.getLogger(ExperienciaEducativaDAO.class.getName()).log(Level.SEVERE, null, e);
                 experienciaEducativaRetorno = null;
             }
         } else {
