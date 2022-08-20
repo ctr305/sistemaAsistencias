@@ -24,11 +24,12 @@ import java.util.logging.Logger;
 public class ConexionBD {
     public static Connection abrirConexionBD(){
         Connection conexion = null;
-        try{
-            Path CURRENT_FILE = Paths.get("");
-            String directory = CURRENT_FILE.toAbsolutePath().toString();
-            directory = Paths.get(directory, "src", "sistemaasistencias", "modelo", "dbconfig.txt").toString();
-            URL url = new File(directory).toURI().toURL();
+        Path CURRENT_FILE = Paths.get("");
+        String directory = CURRENT_FILE.toAbsolutePath().toString();
+        directory = Paths.get(directory, "src", "sistemaasistencias", "modelo", "dbconfig.txt").toString();
+        URL url;
+        try {
+            url = new File(directory).toURI().toURL();
             FileInputStream archivoConfiguracion = new FileInputStream(new File(url.getPath()));
             Properties atributos = new Properties();
             atributos.load(archivoConfiguracion);
@@ -38,9 +39,9 @@ public class ConexionBD {
             String usuario = atributos.getProperty("Usuario");
             String password = atributos.getProperty("Password");
             conexion = DriverManager.getConnection(direccionBD, usuario, password);
-        }catch(FileNotFoundException fe){
-            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, fe);
         } catch (MalformedURLException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
