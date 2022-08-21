@@ -8,8 +8,8 @@ package sistemaasistencias.modelo.DAO;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import proyectoconstruccion.util.Constantes;
 import sistemaasistencias.modelo.POJO.Usuario;
+import sistemaasistencias.util.Constantes;
 
 public class UsuarioDAOTest {
     

@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import proyectoconstruccion.util.Constantes;
+import sistemaasistencias.util.Constantes;
 import sistemaasistencias.modelo.ConexionBD;
 import sistemaasistencias.modelo.POJO.Usuario;
 import static sistemaasistencias.modelo.POJO.Usuario.usuarioLogin;
