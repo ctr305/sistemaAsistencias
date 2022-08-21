@@ -22,9 +22,9 @@ public class ExperienciaEducativaDAO {
         if(conexionBD != null){
             String consulta = "SELECT * FROM experienciaEducativa WHERE NRC = ?";
             try{
-                PreparedStatement configurarConsulta = conexionBD.prepareStatement(consulta);
-                configurarConsulta.setString(1, NRC);
-                ResultSet resultadoConsulta = configurarConsulta.executeQuery();
+                PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
+                prepararConsulta.setString(1, NRC);
+                ResultSet resultadoConsulta = prepararConsulta.executeQuery();
                 while(resultadoConsulta.next()){
                     experienciaEducativaRetorno.setNRC(resultadoConsulta.getString("NRC"));
                     experienciaEducativaRetorno.setNombre(resultadoConsulta.getString("nombre"));
