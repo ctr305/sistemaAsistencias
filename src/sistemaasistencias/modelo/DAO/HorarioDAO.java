@@ -35,10 +35,6 @@ public class HorarioDAO {
                     horarioTemp.setHoras(resultadoConsulta.getString("horas"));
                     horarios.add(horarioTemp);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
                 conexionBD.close();
             } catch (SQLException ex) {
                 Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, ex);

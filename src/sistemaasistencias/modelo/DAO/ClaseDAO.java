@@ -34,10 +34,6 @@ public class ClaseDAO {
                     claseTemp.setFecha(resultadoConsulta.getDate("fecha").toLocalDate());
                     clases.add(claseTemp);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            try {
                 conexionBD.close();
             } catch (SQLException ex) {
                 Logger.getLogger(HorarioDAO.class.getName()).log(Level.SEVERE, null, ex);
