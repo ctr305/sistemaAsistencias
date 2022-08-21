@@ -23,7 +23,7 @@ public class UsuarioDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             try{
-                String consulta = "SELECT * FROM usuario WHERE nombreUsuario = ? AND password = ?";
+                String consulta = "SELECT * FROM usuario WHERE nombreUsuario = ? AND password = SHA(?,256)";
                 PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
                 prepararConsulta.setString(1, nombreUsuario);
                 prepararConsulta.setString(2, password);
@@ -31,7 +31,6 @@ public class UsuarioDAO {
                 if(resultadoConsulta.next()){
                     usuarioLogin.setIdUsuario(resultadoConsulta.getString("idUsuario"));
                     usuarioLogin.setNombreUsuario(resultadoConsulta.getString("nombreUsuario"));
-                    usuarioLogin.setPassword(resultadoConsulta.getString("password"));
                     usuarioLogin.setRol(resultadoConsulta.getString("rol"));
                     usuarioLogin.setNombre(resultadoConsulta.getString("nombre"));
                     usuarioLogin.setApellidoPaterno(resultadoConsulta.getString("apellidoPaterno"));
