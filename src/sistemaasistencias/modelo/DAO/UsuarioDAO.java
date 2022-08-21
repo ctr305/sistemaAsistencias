@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import proyectoconstruccion.util.Constantes;
 import sistemaasistencias.modelo.ConexionBD;
 import sistemaasistencias.modelo.POJO.Usuario;
@@ -44,5 +46,27 @@ public class UsuarioDAO {
             }
         }
         return Usuario.usuarioLogin;
+    }
+    
+    public static Usuario getUsuario(String idUsuario){
+        Usuario usuario = new Usuario();
+        Connection conexionDB = ConexionBD.abrirConexionBD();
+        if(conexionDB != null){
+            try {
+                String consulta = "SELECT idUsuario, rol, nombre, apellidoPaterno, apellidoMaterno FROM usuario WHERE idUsuario = ?";
+                PreparedStatement prepararConsulta = conexionDB.prepareStatement(consulta);
+                prepararConsulta.setString(1, idUsuario);
+                ResultSet resultadoConsulta = prepararConsulta.executeQuery();
+                if(resultadoConsulta.next()){
+                    usuario.setIdUsuario(resultadoConsulta.getString("idUsuario"));
+                    usuario.setNombre(resultadoConsulta.getString("nombre"));
+                    usuario.setApellidoPaterno(resultadoConsulta.getString("apellidoPaterno"));
+                    usuario.setApellidoMaterno(resultadoConsulta.getString("apellidoMaterno"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return usuario;
     }
 }
