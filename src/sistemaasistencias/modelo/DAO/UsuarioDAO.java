@@ -68,4 +68,35 @@ public class UsuarioDAO {
         }
         return usuario;
     }
+    
+    public static int insertarUsuario(Usuario usuarioRegistro){
+        int respuesta;
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null){
+            try{
+                String sentencia = "INSERT INTO sistemaAsistencias.usuario "
+                        + "(idUsuario,nombreUsuario,password,rol,nombre,apellidoPaterno,apellidoMaterno) "
+                        + "VALUES (?,?,SHA2(?,256),?,?,?,?);";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
+                prepararSentencia.setString(1, usuarioRegistro.getIdUsuario());
+                prepararSentencia.setString(2, usuarioRegistro.getNombreUsuario());
+                prepararSentencia.setString(3, usuarioRegistro.getPassword());
+                prepararSentencia.setString(4, usuarioRegistro.getRol());
+                prepararSentencia.setString(5, usuarioRegistro.getNombre());
+                prepararSentencia.setString(6, usuarioRegistro.getApellidoPaterno());
+                prepararSentencia.setString(7, usuarioRegistro.getApellidoMaterno());
+                int filasAfectadas = prepararSentencia.executeUpdate();
+                respuesta = (filasAfectadas == 1) ?
+                        Constantes.CODIGO_OPERACION_CORRECTA :
+                        Constantes.CODIGO_OPERACION_DML_FALLIDA;
+                conexionBD.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                respuesta = Constantes.CODIGO_ERROR_CONEXIONBD;
+            }
+        } else {
+            respuesta = Constantes.CODIGO_ERROR_CONEXIONBD;
+        }
+        return respuesta;
+    }
 }
