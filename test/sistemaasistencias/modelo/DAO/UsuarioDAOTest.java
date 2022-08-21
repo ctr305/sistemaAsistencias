@@ -87,4 +87,18 @@ public class UsuarioDAOTest {
         assertNotEquals(usuarioEsperado.getApellidoPaterno(), usuarioResultado.getApellidoPaterno());
         assertNotEquals(usuarioEsperado.getApellidoMaterno(), usuarioResultado.getApellidoMaterno());
     }
+    
+    @Test
+    public void testRegistrarUsuario(){
+        Usuario usuarioregistro = new Usuario();
+        usuarioregistro.setIdUsuario("testID");
+        usuarioregistro.setNombreUsuario("usuarioTest");
+        usuarioregistro.setPassword("4321");
+        usuarioregistro.setRol("Estudiante");
+        usuarioregistro.setNombre("Alvaro");
+        usuarioregistro.setApellidoPaterno("Gonzales");
+        usuarioregistro.setApellidoMaterno("Ramirez");
+        
+        assertEquals(Constantes.CODIGO_OPERACION_CORRECTA, UsuarioDAO.insertarUsuario(usuarioregistro));
+    }
 }

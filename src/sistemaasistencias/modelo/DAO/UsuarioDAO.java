@@ -74,8 +74,8 @@ public class UsuarioDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             try{
-                String sentencia = "INSERT INTO sistemaAsistencias.usuario "
-                        + "(idUsuario,nombreUsuario,password,rol,nombre,apellidoPaterno,apellidoMaterno) "
+                String sentencia = "INSERT INTO usuario "
+                        + "(idUsuario,nombreUsuario,password,rol,nombre,apellidoPaterno,apellidoMaterno)\n"
                         + "VALUES (?,?,SHA2(?,256),?,?,?,?);";
                 PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
                 prepararSentencia.setString(1, usuarioRegistro.getIdUsuario());
