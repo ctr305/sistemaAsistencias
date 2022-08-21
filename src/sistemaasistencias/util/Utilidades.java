@@ -4,7 +4,7 @@
 * Fecha de modificacion: 15/06/22
 * Descripcion: Clase contenedora de utilidades para el sistema.
 */
-package proyectoconstruccion.util;
+package sistemaasistencias.util;
 
 import java.util.Optional;
 import javafx.scene.control.Alert;

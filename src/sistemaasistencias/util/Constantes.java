@@ -4,7 +4,7 @@
 * Fecha de modificacion: 15/06/22
 * Descripcion: Clase contenedora de constantes para el proyecto.
 */
-package proyectoconstruccion.util;
+package sistemaasistencias.util;
 
 public class Constantes {
     
