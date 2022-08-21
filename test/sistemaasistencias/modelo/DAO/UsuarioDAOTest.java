@@ -101,4 +101,27 @@ public class UsuarioDAOTest {
         
         assertEquals(Constantes.CODIGO_OPERACION_CORRECTA, UsuarioDAO.insertarUsuario(usuarioregistro));
     }
+    
+    @Test
+    public void testRegistrarUsuarioFallo(){
+        Usuario usuarioregistro = new Usuario();
+        usuarioregistro.setIdUsuario("S00000000");
+        usuarioregistro.setNombreUsuario("usuarioTest");
+        usuarioregistro.setPassword("4321");
+        usuarioregistro.setRol("Estudiante");
+        usuarioregistro.setNombre("Alvaro");
+        usuarioregistro.setApellidoPaterno("Gonzales");
+        usuarioregistro.setApellidoMaterno("Ramirez");
+        
+        assertNotEquals(Constantes.CODIGO_OPERACION_CORRECTA, UsuarioDAO.insertarUsuario(usuarioregistro));
+    }
+    
+    @Test
+    public void inicioSesionUsuarioTest(){
+        String nombreUsuario = "usuarioTest";
+        String password = "4321";
+        Usuario usuarioResultado = UsuarioDAO.IniciarSesion(nombreUsuario, password);
+        
+        assertEquals(Constantes.CODIGO_OPERACION_CORRECTA, usuarioResultado.getCodigoRespuesta());
+    }
 }
