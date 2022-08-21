@@ -23,7 +23,7 @@ public class UsuarioDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
             try{
-                String consulta = "SELECT * FROM usuario WHERE nombreUsuario = ? AND password = SHA(?,256)";
+                String consulta = "SELECT * FROM usuario WHERE nombreUsuario = ? AND password = SHA2(?,256)";
                 PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
                 prepararConsulta.setString(1, nombreUsuario);
                 prepararConsulta.setString(2, password);
