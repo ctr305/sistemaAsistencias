@@ -67,4 +67,38 @@ public class UsuarioDAOTest {
         
         assertEquals(Constantes.CODIGO_CREDENCIALES_INCORRECTAS, usuarioResultado.getCodigoRespuesta());
     }
+    
+    public void testGetUsuarioExito() {
+        Usuario usuarioEsperado = new Usuario();
+        usuarioEsperado.setIdUsuario("S00000000");
+        usuarioEsperado.setRol("Estudiante");
+        usuarioEsperado.setNombre("Tobias");
+        usuarioEsperado.setApellidoPaterno("Smith");
+        usuarioEsperado.setApellidoMaterno("Hernandez");
+        
+        String idUsuario = "S00000000";
+        Usuario usuarioResultado = UsuarioDAO.getUsuario(idUsuario);
+        
+        assertEquals(usuarioEsperado.getIdUsuario(), usuarioResultado.getIdUsuario());
+        assertEquals(usuarioEsperado.getNombre(), usuarioResultado.getNombre());
+        assertEquals(usuarioEsperado.getApellidoPaterno(), usuarioResultado.getApellidoPaterno());
+        assertEquals(usuarioEsperado.getApellidoMaterno(), usuarioResultado.getApellidoMaterno());
+    }
+    
+    public void testGetUsuarioFallido() {
+        Usuario usuarioEsperado = new Usuario();
+        usuarioEsperado.setIdUsuario("S00000000");
+        usuarioEsperado.setRol("Estudiante");
+        usuarioEsperado.setNombre("Tobias");
+        usuarioEsperado.setApellidoPaterno("Smith");
+        usuarioEsperado.setApellidoMaterno("Hernandez");
+        
+        String idUsuario = "S00000001";
+        Usuario usuarioResultado = UsuarioDAO.getUsuario(idUsuario);
+        
+        assertNotEquals(usuarioEsperado.getIdUsuario(), usuarioResultado.getIdUsuario());
+        assertNotEquals(usuarioEsperado.getNombre(), usuarioResultado.getNombre());
+        assertNotEquals(usuarioEsperado.getApellidoPaterno(), usuarioResultado.getApellidoPaterno());
+        assertNotEquals(usuarioEsperado.getApellidoMaterno(), usuarioResultado.getApellidoMaterno());
+    }
 }
