@@ -1,8 +1,8 @@
 /*
  * Autor: Leonardo Criollo Ramirez
- * Fecha de creacion:
- * Fecha de modificacion:
- * Descripcion:
+ * Fecha de creacion: 18/08/22
+ * Fecha de modificacion: 19/08/22
+ * Descripcion: Prueba del DAO de ExperienciaEducativa.
  */
 package sistemaasistencias.modelo.DAO;
 
@@ -17,7 +17,7 @@ public class ExperienciaEducativaDAOTest {
     }
 
     @Test
-    public void testGetExperienciaEducativa() {
+    public void testGetExperienciaEducativaExito() {
         String NRC = "80773";
         ExperienciaEducativa esperado = new ExperienciaEducativa();
         esperado.setNRC("80773");
@@ -27,4 +27,14 @@ public class ExperienciaEducativaDAOTest {
         assertEquals(esperado.getNombre(), resultado.getNombre());
     }
     
+    @Test
+    public void testGetExperienciaEducativaFallido() {
+        String NRC = "80774";
+        ExperienciaEducativa esperado = new ExperienciaEducativa();
+        esperado.setNRC("80773");
+        esperado.setNombre("Derecho Aduanero");
+        ExperienciaEducativa resultado = ExperienciaEducativaDAO.getExperienciaEducativa(NRC);
+        assertNotEquals(esperado.getNRC(), resultado.getNRC());
+        assertNotEquals(esperado.getNombre(), resultado.getNombre());
+    }
 }

@@ -1,20 +1,34 @@
 /*
  * Autor: Leonardo Criollo Ramirez
  * Fecha de creacion: 18/08/22
- * Fecha de modificacion: 18/08/22
+ * Fecha de modificacion: 19/08/22
  * Descripcion: POJO de la clase Usuario
  */
 package sistemaasistencias.modelo.POJO;
 
 public class Usuario {
 
+    public static Usuario usuarioLogin;
+    
     private String idUsuario;
     private String nombreUsuario;
     private String password;
     private String rol;
+    private int codigoRespuesta;
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
+
+    public Usuario(String idUsuario, String nombreUsuario, String password, String rol, Integer codigoRespuesta) {
+        this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.rol = rol;
+        this.codigoRespuesta = codigoRespuesta;
+    }
+
+    public Usuario() {
+    }
 
     public String getIdUsuario() {
         return idUsuario;
@@ -36,6 +50,14 @@ public class Usuario {
         return nombre;
     }
 
+    public int getCodigoRespuesta() {
+        return codigoRespuesta;
+    }
+
+    public void setCodigoRespuesta(int codigoRespuesta) {
+        this.codigoRespuesta = codigoRespuesta;
+    }
+    
     public String getApellidoPaterno() {
         return apellidoPaterno;
     }
