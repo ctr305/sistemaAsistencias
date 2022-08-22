@@ -59,7 +59,7 @@ public class FXMLMenuController implements Initializable {
             Scene menu = new Scene(FXMLLoader.load(getClass().getResource("FXMLConsultarAsistencias.fxml")));
             escenarioPrincipal.setScene(menu);
             escenarioPrincipal.initModality(Modality.APPLICATION_MODAL);
-            escenarioPrincipal.setTitle("Registro de Usuarios");
+            escenarioPrincipal.setTitle("Consulta de Asistencias");
             escenarioPrincipal.showAndWait();
         } catch(IOException e){
             Utilidades.mostrarAlerta("Error",
