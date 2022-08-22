@@ -2,7 +2,7 @@
  * Autor: Leonardo Criollo Ramirez
  * Fecha de creacion: 22/08/22
  * Fecha de modificacion: 22/08/22
- * Descripcion: Controlador de la ventana de incio de sesión
+ * Descripcion: Controlador de la ventana de inicio de sesión
  */
 package sistemaasistencias.vistas;
 
