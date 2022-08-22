@@ -118,7 +118,7 @@ public class FXMLRegistrarUsuarioController implements Initializable {
          usuarioRegistro.setPassword(pfPassword.getText());
          usuarioRegistro.setRol(cbRol.getSelectionModel().getSelectedItem());
          usuarioRegistro.setNombre(tfNombre.getText());
-         usuarioRegistro.setApellidoPaterno(tfApellidoMaterno.getText());
+         usuarioRegistro.setApellidoPaterno(tfApellidoPaterno.getText());
          usuarioRegistro.setApellidoMaterno(tfApellidoMaterno.getText());
          
          switch(UsuarioDAO.insertarUsuario(usuarioRegistro)){
