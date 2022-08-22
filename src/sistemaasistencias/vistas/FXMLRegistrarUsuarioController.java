@@ -8,14 +8,43 @@ package sistemaasistencias.vistas;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 
 public class FXMLRegistrarUsuarioController implements Initializable {
 
+    @FXML
+    private TextField tfIdentificador;
+    @FXML
+    private TextField tfNombreUsuario;
+    @FXML
+    private TextField tfNombre;
+    @FXML
+    private TextField tfApellidoPaterno;
+    @FXML
+    private TextField tfApellidoMaterno;
+    @FXML
+    private ComboBox<?> cbRol;
+    @FXML
+    private PasswordField pfPassword;
+    @FXML
+    private PasswordField pfConfirmarContraseña;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
+
+    @FXML
+    private void btnAceptar(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnCancelar(ActionEvent event) {
+    }
     
 }
