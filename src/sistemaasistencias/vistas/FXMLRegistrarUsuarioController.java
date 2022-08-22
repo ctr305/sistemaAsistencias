@@ -52,6 +52,16 @@ public class FXMLRegistrarUsuarioController implements Initializable {
 
     @FXML
     private void btnAceptar(ActionEvent event) {
+        if(comprobarCampos()){
+            insertarUsuario();
+            vaciarCampos();
+        } else {
+            Utilidades.mostrarAlerta("Error",
+                    "Uno o mas campos no han sido llenados correctamente.",
+                    Alert.AlertType.WARNING);
+            pfPassword.clear();
+            pfConfirmarContraseña.clear();
+        }
     }
 
     @FXML
@@ -128,5 +138,16 @@ public class FXMLRegistrarUsuarioController implements Initializable {
                         Alert.AlertType.ERROR);
                 Logger.getLogger(FXMLRegistrarUsuarioController.class.getName()).log(Level.SEVERE, null, new RuntimeException());
          }
+     }
+     
+    private void vaciarCampos(){
+        tfIdentificador.clear();
+        tfNombreUsuario.clear();
+        tfNombre.clear();
+        tfApellidoPaterno.clear();
+        tfApellidoMaterno.clear();
+        cbRol.getSelectionModel().clearSelection();
+        pfPassword.clear();
+        pfConfirmarContraseña.clear();
      }
 }
