@@ -36,7 +36,7 @@ public class ClaseDAOTest {
         assertEquals(expResult.get(0).getFecha(), result.get(0).getFecha());
     }
     
-    @Test(expected=ArrayIndexOutOfBoundsException.class)
+    @Test(expected=IndexOutOfBoundsException.class)
     public void testGetHorariosFallo() {
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
         experienciaEducativa.setNRC("80774");
