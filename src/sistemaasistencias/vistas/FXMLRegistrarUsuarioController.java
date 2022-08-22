@@ -43,7 +43,7 @@ public class FXMLRegistrarUsuarioController implements Initializable {
     @FXML
     private PasswordField pfPassword;
     @FXML
-    private PasswordField pfConfirmarContraseña;
+    private PasswordField pfConfirmarPassword;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -60,7 +60,7 @@ public class FXMLRegistrarUsuarioController implements Initializable {
                     "Uno o mas campos no han sido llenados correctamente.",
                     Alert.AlertType.WARNING);
             pfPassword.clear();
-            pfConfirmarContraseña.clear();
+            pfConfirmarPassword.clear();
         }
     }
 
@@ -84,16 +84,16 @@ public class FXMLRegistrarUsuarioController implements Initializable {
     
      private boolean comprobarCampos() {
         boolean camposCorrectos = true;
-        if(tfIdentificador.getText().isEmpty() || !tfIdentificador.getText().matches("^.*\\s+.*$")){
+        if(tfIdentificador.getText().isEmpty() || tfIdentificador.getText().matches("^.*\\s+.*$")){
             camposCorrectos = false;
         }
-        if(tfNombreUsuario.getText().isEmpty() || !tfNombreUsuario.getText().matches("^.*\\s+.*$")){
+        if(tfNombreUsuario.getText().isEmpty() || tfNombreUsuario.getText().matches("^.*\\s+.*$")){
             camposCorrectos = false;
         }
-        if(pfPassword.getText().isEmpty() || pfConfirmarContraseña.getText().isEmpty()){
+        if(pfPassword.getText().isEmpty() || pfConfirmarPassword.getText().isEmpty()){
             camposCorrectos = false;
         }
-        if(pfPassword.getText() != pfConfirmarContraseña.getText()){
+        if(!pfPassword.getText().equals(pfConfirmarPassword.getText())){
             camposCorrectos = false;
         }
         if(tfNombre.getText().isEmpty() || tfNombre.getText().matches("^[0-9]+$")){
@@ -148,6 +148,6 @@ public class FXMLRegistrarUsuarioController implements Initializable {
         tfApellidoMaterno.clear();
         cbRol.getSelectionModel().clearSelection();
         pfPassword.clear();
-        pfConfirmarContraseña.clear();
+        pfConfirmarPassword.clear();
      }
 }
