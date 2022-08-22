@@ -49,7 +49,7 @@ public class FXMLInicioSesionController implements Initializable {
     }
 
     private boolean validarCampos(String usuario, String password) {
-        Usuario.usuarioLogin = UsuarioDAO.IniciarSesion(usuario, password);
+        Usuario.usuarioLogin = UsuarioDAO.iniciarSesion(usuario, password);
         boolean resultado = false;
         
         switch(Usuario.usuarioLogin.getCodigoRespuesta()){
