@@ -20,6 +20,7 @@ public class SistemaAsistencias extends Application {
         
         Scene scene = new Scene(root);
         
+        stage.setTitle("Sistema Institucional de Control de Asistencias");
         stage.setScene(scene);
         stage.show();
     }
