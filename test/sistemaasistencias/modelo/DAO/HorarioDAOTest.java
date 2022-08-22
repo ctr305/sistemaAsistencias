@@ -37,10 +37,10 @@ public class HorarioDAOTest {
         assertEquals(expResult.get(0).getHoras(), result.get(0).getHoras());
     }
     
-    @Test
+    @Test(expected=ArrayIndexOutOfBoundsException.class)
     public void testGetHorariosFallo() {
         ExperienciaEducativa experienciaEducativa = new ExperienciaEducativa();
-        experienciaEducativa.setNRC("80773");
+        experienciaEducativa.setNRC("80774");
         
         ArrayList<Horario> expResult = new ArrayList<>();
         Horario horarioExp = new Horario();
