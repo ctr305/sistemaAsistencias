@@ -65,6 +65,7 @@ public class FXMLInicioSesionController implements Initializable {
                 Utilidades.mostrarAlerta("Error de conexion", 
                         "No existe conexion con la base de datos.",
                         Alert.AlertType.ERROR);
+                Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, new RuntimeException());
                 break;
             default:
                 Utilidades.mostrarAlerta("Error", 
