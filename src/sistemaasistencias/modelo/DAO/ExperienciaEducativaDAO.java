@@ -10,33 +10,35 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sistemaasistencias.modelo.ConexionBD;
 import sistemaasistencias.modelo.POJO.ExperienciaEducativa;
 
 public class ExperienciaEducativaDAO {
-    public static ExperienciaEducativa getExperienciaEducativa(String NRC){
+    public static ArrayList<ExperienciaEducativa> getExperienciasEducativas(){
         Connection conexionBD = ConexionBD.abrirConexionBD();
-        ExperienciaEducativa experienciaEducativaRetorno = new ExperienciaEducativa();
+        ArrayList<ExperienciaEducativa> experienciasEducativas = new ArrayList<>();
         if(conexionBD != null){
-            String consulta = "SELECT * FROM experienciaEducativa WHERE NRC = ?";
+            String consulta = "SELECT * FROM experienciaEducativa";
             try{
                 PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
-                prepararConsulta.setString(1, NRC);
                 ResultSet resultadoConsulta = prepararConsulta.executeQuery();
                 while(resultadoConsulta.next()){
+                    ExperienciaEducativa experienciaEducativaRetorno = new ExperienciaEducativa();
                     experienciaEducativaRetorno.setNRC(resultadoConsulta.getString("NRC"));
                     experienciaEducativaRetorno.setNombre(resultadoConsulta.getString("nombre"));
+                    experienciasEducativas.add(experienciaEducativaRetorno);
                 }
                 conexionBD.close();
             } catch (SQLException e){
                 Logger.getLogger(ExperienciaEducativaDAO.class.getName()).log(Level.SEVERE, null, e);
-                experienciaEducativaRetorno = null;
+                experienciasEducativas = null;
             }
         } else {
-            experienciaEducativaRetorno = null;
+            experienciasEducativas = null;
         }
-        return experienciaEducativaRetorno;
+        return experienciasEducativas;
     }
 }
