@@ -48,8 +48,8 @@ public class FXMLConsultarAsistenciasController implements Initializable {
     }
     
     private void configurarColumnas(){
-        colNRC.setCellFactory(new PropertyValueFactory("NRC"));
-        colNombre.setCellFactory(new PropertyValueFactory("nombre"));
+        colNRC.setCellValueFactory(new PropertyValueFactory("NRC"));
+        colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         infoExperienciasEducativas = FXCollections.observableArrayList();
     }
     
