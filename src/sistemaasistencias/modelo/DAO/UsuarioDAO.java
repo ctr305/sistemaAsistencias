@@ -18,7 +18,7 @@ import sistemaasistencias.modelo.POJO.Usuario;
 import static sistemaasistencias.modelo.POJO.Usuario.usuarioLogin;
 
 public class UsuarioDAO {
-    public static Usuario IniciarSesion(String nombreUsuario, String password){
+    public static Usuario iniciarSesion(String nombreUsuario, String password){
         Usuario.usuarioLogin = new Usuario();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
