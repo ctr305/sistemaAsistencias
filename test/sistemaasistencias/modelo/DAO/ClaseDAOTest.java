@@ -43,9 +43,9 @@ public class ClaseDAOTest {
         
         ArrayList<Clase> expResult = new ArrayList<>();
         Clase claseExp = new Clase();
-        claseExp.setIdClase(1);
-        claseExp.setNRC("80773");
-        claseExp.setFecha(LocalDate.parse("2022-08-21"));
+        claseExp.setIdClase(0);
+        claseExp.setNRC("80774");
+        claseExp.setFecha(LocalDate.parse("2022-09-01"));
         expResult.add(claseExp);
         
         ArrayList<Clase> result = ClaseDAO.getClasesDeExperienciaEducativa(experienciaEducativa);
