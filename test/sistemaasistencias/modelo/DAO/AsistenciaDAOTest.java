@@ -19,7 +19,7 @@ public class AsistenciaDAOTest {
     }
     
     @Test
-    public void testGetAsistencias() {
+    public void testGetAsistenciasExito() {
         Clase clase = new Clase();
         clase.setIdClase(1);
         
@@ -37,7 +37,7 @@ public class AsistenciaDAOTest {
     }
     
     @Test(expected=IndexOutOfBoundsException.class)
-    public void testGetAsistencias() {
+    public void testGetAsistenciasFallo() {
         Clase clase = new Clase();
         clase.setIdClase(2);
         
