@@ -18,13 +18,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sistemaasistencias.util.Utilidades;
 
 public class FXMLMenuController implements Initializable {
-
-    @FXML
-    private Label lbMenu;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -42,10 +40,12 @@ public class FXMLMenuController implements Initializable {
     
     private void abrirRegistroUsuarios() {
         try{
-            Stage escenarioPrincipal = (Stage) lbMenu.getScene().getWindow();
+            Stage escenarioPrincipal = new Stage();
             Scene menu = new Scene(FXMLLoader.load(getClass().getResource("FXMLRegistrarUsuario.fxml")));
             escenarioPrincipal.setScene(menu);
-            escenarioPrincipal.show();
+            escenarioPrincipal.initModality(Modality.APPLICATION_MODAL);
+            escenarioPrincipal.setTitle("Registro de Usuarios");
+            escenarioPrincipal.showAndWait();
         } catch(IOException e){
             Utilidades.mostrarAlerta("Error",
                     "Ocurrio un error al mostrar la ventana",
@@ -56,10 +56,12 @@ public class FXMLMenuController implements Initializable {
     
     private void abrirConsultaAsistencias() {
         try{
-            Stage escenarioPrincipal = (Stage) lbMenu.getScene().getWindow();
+            Stage escenarioPrincipal = new Stage();
             Scene menu = new Scene(FXMLLoader.load(getClass().getResource("FXMLConsultarAsistencias.fxml")));
             escenarioPrincipal.setScene(menu);
-            escenarioPrincipal.show();
+            escenarioPrincipal.initModality(Modality.APPLICATION_MODAL);
+            escenarioPrincipal.setTitle("Registro de Usuarios");
+            escenarioPrincipal.showAndWait();
         } catch(IOException e){
             Utilidades.mostrarAlerta("Error",
                     "Ocurrio un error al mostrar la ventana",
