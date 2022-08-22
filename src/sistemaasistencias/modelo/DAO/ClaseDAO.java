@@ -22,7 +22,7 @@ public class ClaseDAO {
         ArrayList<Clase> clases = new ArrayList<>();
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
-            String consulta = "SELECT * FROM Clase WHERE NRC = ?";
+            String consulta = "SELECT * FROM clase WHERE NRC = ?";
             try {
                 PreparedStatement prepararConsulta = conexionBD.prepareStatement(consulta);
                 prepararConsulta.setString(1, experienciaEducativa.getNRC());
