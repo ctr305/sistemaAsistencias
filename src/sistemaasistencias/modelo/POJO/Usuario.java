@@ -6,6 +6,8 @@
  */
 package sistemaasistencias.modelo.POJO;
 
+import javafx.scene.control.CheckBox;
+
 public class Usuario {
 
     public static Usuario usuarioLogin;
@@ -18,6 +20,7 @@ public class Usuario {
     private String nombre;
     private String apellidoPaterno;
     private String apellidoMaterno;
+    private CheckBox asistio;
 
     public Usuario(String idUsuario, String nombreUsuario, String password, String rol, Integer codigoRespuesta) {
         this.idUsuario = idUsuario;
@@ -54,6 +57,10 @@ public class Usuario {
         return codigoRespuesta;
     }
 
+    public CheckBox getAsistio() {
+        return asistio;
+    }
+    
     public void setCodigoRespuesta(int codigoRespuesta) {
         this.codigoRespuesta = codigoRespuesta;
     }
@@ -92,5 +99,9 @@ public class Usuario {
 
     public void setApellidoMaterno(String apellidoMaterno) {
         this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public void setAsistio(CheckBox asistio) {
+        this.asistio = asistio;
     }
 }

@@ -29,7 +29,7 @@ public class UsuarioDAOTest {
         
         String nombreUsuario = "tobias22";
         String password = "1234";
-        Usuario usuarioResultado = UsuarioDAO.IniciarSesion(nombreUsuario, password);
+        Usuario usuarioResultado = UsuarioDAO.iniciarSesion(nombreUsuario, password);
         
         assertEquals(Constantes.CODIGO_OPERACION_CORRECTA, usuarioResultado.getCodigoRespuesta());
     }
@@ -47,7 +47,7 @@ public class UsuarioDAOTest {
         
         String nombreUsuario = "tobias23";
         String password = "1234";
-        Usuario usuarioResultado = UsuarioDAO.IniciarSesion(nombreUsuario, password);
+        Usuario usuarioResultado = UsuarioDAO.iniciarSesion(nombreUsuario, password);
         
         assertEquals(Constantes.CODIGO_CREDENCIALES_INCORRECTAS, usuarioResultado.getCodigoRespuesta());
     }
@@ -120,7 +120,7 @@ public class UsuarioDAOTest {
     public void inicioSesionUsuarioTest(){
         String nombreUsuario = "usuarioTest";
         String password = "4321";
-        Usuario usuarioResultado = UsuarioDAO.IniciarSesion(nombreUsuario, password);
+        Usuario usuarioResultado = UsuarioDAO.iniciarSesion(nombreUsuario, password);
         
         assertEquals(Constantes.CODIGO_OPERACION_CORRECTA, usuarioResultado.getCodigoRespuesta());
     }
