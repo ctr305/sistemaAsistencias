@@ -90,7 +90,13 @@ public class FXMLListaAsistenciasController implements Initializable {
                 ArrayList<Asistencia> asistenciaTemp = AsistenciaDAO.getAsistencias(c);
                 for(Asistencia a : asistenciaTemp){
                     Usuario usuarioTemp = UsuarioDAO.getUsuario(a.getIdUsuario());
-                    if(!asistentes.contains(usuarioTemp)){
+                    boolean flag = true;
+                    for(Usuario u : asistentes){
+                        if(usuarioTemp.getIdUsuario().equals(u.getIdUsuario())){
+                            flag = false;
+                        }
+                    }
+                    if(flag){
                         asistentes.add(usuarioTemp);
                     }
                 }

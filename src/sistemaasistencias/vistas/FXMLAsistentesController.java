@@ -79,7 +79,7 @@ public class FXMLAsistentesController implements Initializable {
         colAsistencia.setEditable(false);
         infoAsistentes = FXCollections.observableArrayList();
     }
-    
+
     private void cargarInformacion(){
         ArrayList<Asistencia> asistencias = AsistenciaDAO.getAsistencias(clase);
         
