@@ -14,10 +14,10 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tbExperienciasEducativas" layoutX="25.0" layoutY="65.0" prefHeight="454.0" prefWidth="748.0">
+      <TableView fx:id="tbExperienciasEducativas" layoutX="25.0" layoutY="65.0" onMouseClicked="#clickExperienciaEducativa" prefHeight="454.0" prefWidth="748.0">
         <columns>
-          <TableColumn fx:id="colNRC" prefWidth="135.0" text="NRC" />
-          <TableColumn fx:id="colNombre" prefWidth="612.0" text="Nombre" />
+          <TableColumn fx:id="colNRC" editable="false" prefWidth="135.0" text="NRC" />
+          <TableColumn fx:id="colNombre" editable="false" prefWidth="612.0" text="Nombre" />
         </columns>
       </TableView>
       <Button layoutX="713.0" layoutY="538.0" mnemonicParsing="false" onAction="#btnCancelar" text="Cancelar" />

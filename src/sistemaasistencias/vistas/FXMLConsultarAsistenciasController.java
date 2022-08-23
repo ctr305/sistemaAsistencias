@@ -6,6 +6,7 @@
  */
 package sistemaasistencias.vistas;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -15,11 +16,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.LoadException;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sistemaasistencias.modelo.DAO.ExperienciaEducativaDAO;
 import sistemaasistencias.modelo.POJO.ExperienciaEducativa;
@@ -71,4 +77,42 @@ public class FXMLConsultarAsistenciasController implements Initializable {
         Stage escenario = (Stage) tbExperienciasEducativas.getScene().getWindow();
         escenario.close();
     }
+    
+    private void valorSeleccionadoTabla(){
+        int filaSeleccionada = tbExperienciasEducativas.getSelectionModel().getSelectedIndex();
+        if(filaSeleccionada >= 0){
+            ExperienciaEducativa experienciaEducativa = infoExperienciasEducativas.get(filaSeleccionada);
+            irListaAsistencias(experienciaEducativa);
+        }else{
+            Utilidades.mostrarAlerta("Experiencia Educativa no seleccionada",
+            "Debes seleccionar una Experiencia Educativa para continuar.", 
+            Alert.AlertType.WARNING);
+        }
+    }
+
+    private void irListaAsistencias(ExperienciaEducativa experienciaEducativa) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLListaAsistencias.fxml"));
+            Parent root = loader.load();
+            FXMLListaAsistenciasController controladorAsistencias = loader.getController();
+            controladorAsistencias.setExperienciaEducativa(experienciaEducativa);
+            Stage escenarioPrincipal = (Stage) tbExperienciasEducativas.getScene().getWindow();
+            Scene pantallaAsistencias = new Scene(root);
+            escenarioPrincipal.setScene(pantallaAsistencias);
+            escenarioPrincipal.show();            
+        } catch (IOException ex) {
+            Utilidades.mostrarAlerta("Error",
+                    "Error al mostrar ventana.",
+                    Alert.AlertType.ERROR);
+            Logger.getLogger(FXMLConsultarAsistenciasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void clickExperienciaEducativa(MouseEvent event) {
+        if(event.getClickCount() >= 2){
+            valorSeleccionadoTabla();
+        }
+    }
+
 }
