@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaasistencias.vistas.FXMLAsistentesController">
+    <children>
+      <TableView fx:id="tbAsistentes" layoutX="16.0" layoutY="87.0" prefHeight="472.0" prefWidth="768.0">
+        <columns>
+          <TableColumn fx:id="colNombre" editable="false" prefWidth="316.0" text="Nombre" />
+          <TableColumn fx:id="colIdentificador" editable="false" minWidth="9.0" prefWidth="191.0" text="Identificador" />
+            <TableColumn fx:id="colRol" editable="false" prefWidth="175.0" text="Rol" />
+            <TableColumn fx:id="colAsistencia" editable="false" prefWidth="85.0" text="Asistencia" />
+        </columns>
+      </TableView>
+      <Label fx:id="lbAsistentes" layoutX="14.0" layoutY="14.0" text="Asistentes de la clase:">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

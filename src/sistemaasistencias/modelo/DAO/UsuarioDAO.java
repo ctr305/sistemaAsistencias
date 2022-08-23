@@ -59,6 +59,7 @@ public class UsuarioDAO {
                 if(resultadoConsulta.next()){
                     usuario.setIdUsuario(resultadoConsulta.getString("idUsuario"));
                     usuario.setNombre(resultadoConsulta.getString("nombre"));
+                    usuario.setRol(resultadoConsulta.getString("rol"));
                     usuario.setApellidoPaterno(resultadoConsulta.getString("apellidoPaterno"));
                     usuario.setApellidoMaterno(resultadoConsulta.getString("apellidoMaterno"));
                 }

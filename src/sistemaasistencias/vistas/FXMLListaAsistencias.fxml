@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="sistemaasistencias.vistas.FXMLListaAsistenciasController">
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sistemaasistencias.vistas.FXMLListaAsistenciasController">
    <children>
       <Label fx:id="lbNombreEE" layoutX="14.0" layoutY="14.0" text="Nombre EE">
          <font>
@@ -18,6 +18,9 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="tbAsistencias" layoutX="14.0" layoutY="90.0" prefHeight="472.0" prefWidth="768.0" />
+      <TableView fx:id="tbClases" layoutX="14.0" layoutY="90.0" onMouseClicked="#clickClase" prefHeight="472.0" prefWidth="768.0">
+         <columns>
+            <TableColumn fx:id="colClase" prefWidth="767.0" text="Clase" />
+         </columns></TableView>
    </children>
 </AnchorPane>
